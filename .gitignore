@@ -1,0 +1,160 @@
+# ============================================================
+# LangChain 1.0 学习项目 - Git 忽略配置
+# ============================================================
+
+# ==================== 环境变量 ====================
+.env
+.env.local
+.env.*.local
+*.env
+
+# ==================== Python ====================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ==================== 虚拟环境 ====================
+venv/
+ENV/
+env/
+.venv/
+.env/
+env.bak/
+venv.bak/
+.conda/
+
+# ==================== IDE ====================
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Spyder
+.spyderproject
+.spyproject
+
+# ==================== 数据库 ====================
+*.db
+*.sqlite
+*.sqlite3
+checkpoints.db
+chroma_db/
+faiss_index/
+*.pkl
+*.pickle
+
+# ==================== 向量存储 ====================
+vector_store/
+embeddings/
+index/
+chroma/
+
+# ==================== 日志 ====================
+*.log
+logs/
+*.log.*
+
+# ==================== 缓存 ====================
+.cache/
+*.cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ==================== 临时文件 ====================
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# ==================== 系统文件 ====================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ==================== 测试覆盖率 ====================
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+
+# ==================== 文档构建 ====================
+docs/_build/
+site/
+
+# ==================== 数据文件 ====================
+data/*.csv
+data/*.json
+data/*.txt
+!data/.gitkeep
+uploads/
+downloads/
+
+# ==================== 模型文件 ====================
+models/
+*.bin
+*.onnx
+*.pt
+*.pth
+*.h5
+*.hdf5
+
+# ==================== LangSmith ====================
+.langsmith/
+
+# ==================== uv 包管理器 ====================
+.uv/
+uv.lock
+
+
+
+# ==================== 其他 ====================
+*.pid
+*.seed
+*.pid.lock
+.node_repl_history
+.npm
+.eslintcache
+.yarn-integrity
+
+# ==================== 不要忽略的文件 ====================
+!.env.example
+!requirements.txt
+!README.md
