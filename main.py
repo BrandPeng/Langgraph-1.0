@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from src.graph import build_graph
-
+from src.graph.builder import build_graph_with_condition
 
 async def run_workflow(question: str):
     """
@@ -29,7 +29,8 @@ async def run_workflow(question: str):
     print("=" * 60)
     
     # 构建图
-    graph = build_graph()
+
+    graph = build_graph_with_condition()
     
     # 初始状态
     initial_state = {

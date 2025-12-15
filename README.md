@@ -268,6 +268,38 @@ llm_with_tools = llm.bind_tools(tools)
 
 ---
 
+## 🚀 后续扩展学习 (Next Steps)   
+当你跑通并理解项目后，建议按照以下顺序进阶，将项目从“Demo”升级为“生产级应用”：
+
+1. **Persistence (持久化与记忆)**   
+目标：让 Agent 拥有记忆，支持多轮对话和状态回滚。    
+现状：目前程序运行结束后，所有状态（State）都会丢失。     
+改进：
+
+- 引入 Checkpointer（如 SqliteSaver 或 PostgresSaver）。
+
+- 在编译图时使用 workflow.compile(checkpointer=memory)。
+
+- 调用时传入 thread_id，系统会自动加载之前的聊天记录。   
+
+进阶玩法：利用持久化实现 Time Travel（时间旅行），可以查看历史步骤的 State，甚至修改中间状态来纠正 Agent 的错误。
+2. **Human-in-the-loop (人工介入)**
+目标：在关键步骤加入人工审核，防止 Agent“胡说八道”。   
+场景：在 Writer 生成最终文章前，暂停程序，让人类确认或修改内容。    
+实现：
+- 使用 interrupt_before=["writer"] 设置断点。
+- 程序暂停后，用户可以输入指令：approve（通过）或 update_state（修改反馈）。
+- 这是一个非常强大的功能，也是 LangGraph 区别于其他框架的核心优势。
+3. **Agentic RAG (工具化检索增强)**
+目标：让 Agent 能够查询本地的私有文档（如 PDF、Markdown），而不仅仅是搜索互联网。   
+思路：不要把 RAG 写成一个死板的 Chain，而是把它封装成一个 Tool。    
+实现：
+- 使用 LangChain 加载文档并存入向量数据库（如 Chroma）。
+- 创建一个 retriever_tool，命名为 search_local_knowledge。
+- 将这个工具绑定给 Researcher Agent。
+- 效果：Agent 会根据问题自动判断是去“搜谷歌”还是“查本地文档”。
+
+
 ## ❓ 常见问题
 
 ### Q: 为什么要用多个 Agent？
