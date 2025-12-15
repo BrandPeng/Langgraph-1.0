@@ -282,7 +282,8 @@ llm_with_tools = llm.bind_tools(tools)
 
 - 调用时传入 thread_id，系统会自动加载之前的聊天记录。   
 
-进阶玩法：利用持久化实现 Time Travel（时间旅行），可以查看历史步骤的 State，甚至修改中间状态来纠正 Agent 的错误。
+进阶玩法：利用持久化实现 Time Travel（时间旅行），可以查看历史步骤的 State，甚至修改中间状态来纠正 Agent 的错误。    
+
 2. **Human-in-the-loop (人工介入)**
 目标：在关键步骤加入人工审核，防止 Agent“胡说八道”。   
 场景：在 Writer 生成最终文章前，暂停程序，让人类确认或修改内容。    
@@ -290,6 +291,7 @@ llm_with_tools = llm.bind_tools(tools)
 - 使用 interrupt_before=["writer"] 设置断点。
 - 程序暂停后，用户可以输入指令：approve（通过）或 update_state（修改反馈）。
 - 这是一个非常强大的功能，也是 LangGraph 区别于其他框架的核心优势。
+
 3. **Agentic RAG (工具化检索增强)**
 目标：让 Agent 能够查询本地的私有文档（如 PDF、Markdown），而不仅仅是搜索互联网。   
 思路：不要把 RAG 写成一个死板的 Chain，而是把它封装成一个 Tool。    
