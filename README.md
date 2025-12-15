@@ -301,6 +301,12 @@ llm_with_tools = llm.bind_tools(tools)
 - 将这个工具绑定给 Researcher Agent。
 - 效果：Agent 会根据问题自动判断是去“搜谷歌”还是“查本地文档”。
 
+4. **MCP (Model Context Protocol) - Agent 的“USB 接口”**    
+目标：通过标准协议扩展 Agent 工具生态。     
+
+- 概念：MCP 是 AI 时代的“USB 接口”标准。    
+- 改进：不再手写 Python 工具函数，而是接入标准的 MCP Server（如 GitHub, Google Drive, Filesystem）。这意味着你的 Agent 可以直接读取你的本地代码库或操作数据库，实现工具的即插即用。
+
 
 ## ❓ 常见问题
 
