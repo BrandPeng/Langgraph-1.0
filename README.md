@@ -6,6 +6,8 @@
 
 这是一个**最小化的多Agent项目模板**，帮助你理解 LangGraph 的核心概念，并快速上手开发自己的多Agent应用，仿照deer-flow做的demo项目，以更好的学习deer-flow。
 
+![img.png](img.png)
+
 
 
 ---
